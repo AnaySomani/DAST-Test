@@ -3,9 +3,9 @@ on:
   pull_request:
     branches:
      - main
-  #push: 
-  # branches:
-  # - main
+  push: 
+   branches:
+   - main
     
   workflow_dispatch: #adds a 'run now' button
   
@@ -44,7 +44,7 @@ jobs:
             log_level: info
             #prod
             base_url: "https://deu.ast.checkmarx.net"
-            environment_id: "112379b6-caa4-4fa2-9085-e88cc64533e3"
+            environment_id: "29789737-b572-418d-beb9-cc0aab87d5e1"
             # canary
             #base_url: "https://deu.ast.checkmarx.net"
             #environment_id: "fd6ea573-a228-47e1-b5f8-573525251bc0"
