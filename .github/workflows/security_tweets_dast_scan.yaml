@@ -39,9 +39,9 @@ jobs:
           # canary: 
           # CX_APIKEY: ${{ secrets.CANARY_API_KEY }}
         with:
-            command: web
-            config: './security_tweets.yaml'
-            log_level: info
+            command: "web"
+            config: "security_tweets.yaml"
+            # log_level: info
             #prod
             base_url: "https://deu.ast.checkmarx.net"
             environment_id: "112379b6-caa4-4fa2-9085-e88cc64533e3"
@@ -50,7 +50,7 @@ jobs:
             #environment_id: "fd6ea573-a228-47e1-b5f8-573525251bc0"
             fail_on: ""
             verbose: true
-            output: ${{ github.workspace }}/output_fold
+            # output: ${{ github.workspace }}/output_fold
       - name: Reclaim output directory
         if: always()
         run: sudo chown -R 1001:1001 ${{ github.workspace }}/output_fold
