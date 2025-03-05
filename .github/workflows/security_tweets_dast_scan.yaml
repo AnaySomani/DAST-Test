@@ -21,7 +21,7 @@ jobs:
     permissions:
       contents: read # for actions/checkout to fetch code
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
-      actions: read # only required for a private repository by github/codeql-action/upload-sarif
+      #actions: read # only required for a private repository by github/codeql-action/upload-sarif
      # The type of runner that the job will run on 
     runs-on: ubuntu-latest
     steps:
@@ -32,7 +32,7 @@ jobs:
       - name: Change dir owner
         run: sudo chown -R 1000:1000 ${{ github.workspace }}
       - name: Checkmarx DAST Github Action
-        uses: Checkmarx/dast-github-action@v1.0.0-beta
+        uses: Checkmarx/dast-github-action@v1.0
         env:
           # prod
           CX_APIKEY: ${{ secrets.CX_APIKEY }}
@@ -43,7 +43,7 @@ jobs:
             config: './security_tweets.yaml'
             log_level: info
             #prod
-            base_url: "https://deu.ast.checkmarx.net"
+            base_url: "https://deu.ast.checkmarx.net/"
             environment_id: "112379b6-caa4-4fa2-9085-e88cc64533e3"
             # canary
             #base_url: "https://deu.ast.checkmarx.net"
