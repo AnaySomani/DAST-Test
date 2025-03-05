@@ -3,9 +3,9 @@ on:
   pull_request:
     branches:
      - main
-  #push: 
-  # branches:
-  # - main
+  push: 
+    branches:
+      - main
     
   workflow_dispatch: #adds a 'run now' button
   
@@ -32,7 +32,7 @@ jobs:
       - name: Change dir owner
         run: sudo chown -R 1000:1000 ${{ github.workspace }}
       - name: Checkmarx DAST Github Action
-        uses: Checkmarx/dast-github-action@v1.0.0-beta
+        uses: Checkmarx/dast-github-action@v1.0.3
         env:
           # prod
           CX_APIKEY: ${{ secrets.CX_APIKEY }}
